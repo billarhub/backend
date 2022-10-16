@@ -7,6 +7,7 @@ Create Date: 2022-10-14 18:09:33.101165
 """
 from alembic import op
 import sqlalchemy as sa
+from datetime import datetime
 
 
 # revision identifiers, used by Alembic.
@@ -56,6 +57,17 @@ def upgrade():
     sa.PrimaryKeyConstraint('id')
     )
     # ### end Alembic commands ###
+    role_table = sa.sql.table('Role', sa.sql.column('name', sa.String), sa.sql.column('date_created', sa.DateTime), sa.sql.column('date_modified', sa.DateTime))
+    op.bulk_insert(
+        role_table,
+        [
+            {'id': 1,'date_created': datetime.today(),'date_modified': datetime.today(), 'name': "superuser"},
+            {'id': 2,'date_created': datetime.today(),'date_modified': datetime.today(), 'name': "federation"},
+            {'id': 3,'date_created': datetime.today(),'date_modified': datetime.today(), 'name': "association"},
+            {'id': 4,'date_created': datetime.today(),'date_modified': datetime.today(), 'name': "club"},
+            {'id': 5,'date_created': datetime.today(),'date_modified': datetime.today(), 'name': "player"},
+        ]
+    )
 
 
 def downgrade():
