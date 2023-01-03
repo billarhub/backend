@@ -61,11 +61,11 @@ def upgrade():
     op.bulk_insert(
         role_table,
         [
-            {'id': 1,'date_created': datetime.today(),'date_modified': datetime.today(), 'name': "superuser"},
-            {'id': 2,'date_created': datetime.today(),'date_modified': datetime.today(), 'name': "federation"},
-            {'id': 3,'date_created': datetime.today(),'date_modified': datetime.today(), 'name': "association"},
-            {'id': 4,'date_created': datetime.today(),'date_modified': datetime.today(), 'name': "club"},
-            {'id': 5,'date_created': datetime.today(),'date_modified': datetime.today(), 'name': "player"},
+            {'id': 1,'date_created': datetime.today(),'date_modified': datetime.today(), 'name': "superadmin"},
+            {'id': 2,'date_created': datetime.today(),'date_modified': datetime.today(), 'name': "admin"},
+            {'id': 3,'date_created': datetime.today(),'date_modified': datetime.today(), 'name': "organizer"},
+            {'id': 4,'date_created': datetime.today(),'date_modified': datetime.today(), 'name': "player"},
+            {'id': 5,'date_created': datetime.today(),'date_modified': datetime.today(), 'name': "operator"},
         ]
     )
 
