@@ -7,3 +7,5 @@ from .Auth.RegisterUserCommand import RegisterUserCommand
 from .Auth.PasswordRecoveryCommand import PasswordRecoveryCommand
 from .Auth.ConfirmPasswordCommand import ConfirmPasswordCommand
 
+#Parameter
+from .Parameter.AddParameterCommand import AddParameterCommand

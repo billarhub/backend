@@ -66,8 +66,6 @@ class User(BaseModel):
         """
         Return as dict
         """
-        # user_plan = UserPlans.query.filter_by(user_id = self.id).first()
-        # plan = Plans.query.filter_by(id = user_plan.plan_id).first() if user_plan else None
 
         return {
             "id": self.id,

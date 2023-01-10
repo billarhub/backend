@@ -1,11 +1,11 @@
 from inspect import Traceback, trace
 from .DAO import DAO
-from ..models import User as UserModel, Role as RoleModel
+from ..models import Parameter as ParameterModel, Role as RoleModel
 from app import db
 import bcrypt
 import traceback
 
-class User(DAO):
+class Parameter(DAO):
     """
     User Data Access Object Abstract Class.
     """
@@ -18,12 +18,11 @@ class User(DAO):
         Adds to the Database
         """
         try:
-            hashed_password = bcrypt.hashpw(data['password'].encode('utf-8'), bcrypt.gensalt())
-            user = UserModel(data["identification_type"], data["identification_number"], data["cellphone"], data['role_id'], data["name"], data["last_name"], data["username"], data["email"], hashed_password.decode('utf8'), data["status"])
-            db.session.add(user)
+            parameter = ParameterModel(data["name"], data["description"], data["sport_id"])
+            db.session.add(parameter)
             db.session.commit()
 
-            return user.id
+            return parameter.id
         except Exception as ex:
             traceback.print_exc()
             return 0
@@ -32,17 +31,17 @@ class User(DAO):
         """
         Gets alll records from the Database
         """
-        users = UserModel.query.all()
+        # users = UserModel.query.all()
 
-        return users
+        return 
 
     def find(self, id):
         """
         Find a single record from the Database by id
         """
-        users = UserModel.query.filter_by(role_id = 1, id = id).first()
+        # users = UserModel.query.filter_by(role_id = 1, id = id).first()
 
-        return users
+        return 
 
     def update(self, data):
         """

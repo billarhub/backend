@@ -45,7 +45,7 @@ def register():
         validator.validate()
         
         data['status'] = 1
-        data['role_id'] = 2
+        data['role_id'] = 4
 
         command = RegisterUserCommand(data)
         response = command.execute()
@@ -62,7 +62,7 @@ def register():
         # There was an error adding the admin
         return {"status":0, "message":"Hubo un error interno" }, 400
 
-@auth.route('/register_store', methods=['POST'])
+@auth.route('/register_organizer', methods=['POST'])
 def register_store():
     try:
         data = json.loads(request.data)
@@ -70,7 +70,7 @@ def register_store():
         validator = RegisterUserValidator(data)
         validator.validate()
 
-        data['status'] = 0
+        data['status'] = 1
         data['role_id'] = 3
 
         command = RegisterStoreCommand(data)

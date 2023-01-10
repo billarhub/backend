@@ -1,3 +1,5 @@
 from .Role import Role
 from .User import User
+from .Sport import Sport
+from .Parameter import Parameter
 from .BaseModel import BaseModel
